@@ -68,12 +68,18 @@ body {
     color: #856404;
     border: 1px solid #ffeeba;
 }
-#logo-container {
-    text-align: center;
+#header-container {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
 }
 
 #logo {
     width: 100px; /* Ajusta el tamaño del logo según tus necesidades */
     height: auto;
+    margin-right: 10px; /* Espacio entre el logo y el título */
+}
+
+#header-container h1 {
+    margin: 0; /* Elimina el margen predeterminado del título */
 }
