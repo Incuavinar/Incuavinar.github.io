@@ -7,3 +7,64 @@ body {
     margin: auto;
     background-color: #f4f4f4;
 }
+/* Estilos básicos para las tablas de resultados */
+.results-table {
+    width: 100%; /* O un ancho específico */
+    border-collapse: collapse; /* Une los bordes de las celdas */
+    margin-bottom: 20px; /* Espacio entre tablas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 1px solid #ddd; /* Borde ligero */
+}
+
+.results-table h2 { /* Estilo para los títulos si están fuera de la tabla */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #007bff; /* Línea bajo el título */
+    padding-bottom: 5px;
+    color: #333;
+}
+
+.results-table th,
+.results-table td {
+    border: 1px solid #ddd; /* Bordes para celdas */
+    padding: 10px; /* Espaciado interno */
+    text-align: left; /* Alineación del texto */
+    vertical-align: top; /* Alineación vertical */
+}
+
+.results-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Color de fondo para filas pares */
+}
+
+.results-table td:first-child strong {
+    /* Estilo específico para la etiqueta (columna izquierda) */
+    color: #555;
+}
+
+/* Clases para mensajes */
+.loading,
+.error,
+.not-found {
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.loading {
+    background-color: #eef;
+    color: #33a;
+    border: 1px solid #aae;
+}
+
+.error {
+    background-color: #fee;
+    color: #a33;
+    border: 1px solid #eaa;
+}
+
+.not-found {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
