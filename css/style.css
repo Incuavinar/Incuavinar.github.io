@@ -68,3 +68,12 @@ body {
     color: #856404;
     border: 1px solid #ffeeba;
 }
+#logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#logo {
+    width: 150px; /* Ajusta el tamaño del logo según tus necesidades */
+    height: auto;
+}
