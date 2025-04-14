@@ -1,0 +1,9 @@
+/* css/style.css */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background-color: #f4f4f4;
+}
