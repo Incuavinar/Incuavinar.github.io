@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Usa la instancia global `supabase`
             const { data, error } = await supabase
                 .from('Base de datos')      // Nombre de tu tabla
-                .select('cedula,Nombres_y_Apellidos,Cotizante,Sede,Salario')           // Columnas a seleccionar
+                .select('cedula,Nombres_y_Apellidos,Cotizante,Sede,Salario,Cargo_Empresa,Fecha_de_Nacimiento,EPS,AFP,Correo_electronico,Celular')           // Columnas a seleccionar
                 .eq('cedula', cedula)  // Condición de búsqueda
                 .maybeSingle();        // Espera 0 o 1 resultado
 
