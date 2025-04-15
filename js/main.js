@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Si necesitas ARL, agrégalo aquí: 'cedula,Nombres_y_Apellidos,...,EPS,AFP,ARL,Correo_electronico,Celular'
             const { data, error } = await supabase
                 .from('Base de datos')      // Nombre de tu tabla
-                .select('cedula,Nombres_y_Apellidos,Fecha_de_nacimiento,Cotizante,Sede,Salario,Cargo_Empresa,EPS,AFP,Correo_electronico,Celular') // Columnas a seleccionar
+                .select('cedula,nombres_y_apellidos,fecha_nacimiento,cotizante,sede,salario,cargo_empresa,eps,afp,correo_electronico,celular') // Columnas a seleccionar
                 .eq('cedula', cedula)  // Condición de búsqueda
                 .maybeSingle();        // Espera 0 o 1 resultado
 
@@ -71,12 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 outputHtml += '<h2>Datos Personales</h2>';
                 outputHtml += '<table class="results-table">';
                 outputHtml += '<tbody>';
-                outputHtml += createTableRow('Nombres_y_Apellidos', data.Nombres_y_Apellidos);
-                outputHtml += createTableRow('cedula', data.cedula);
-                outputHtml += createTableRow('Celular', data.Celular);
-                outputHtml += createTableRow('Correo_electronico', data.Correo_electronico);
-                 // Si quieres incluir Fecha_de_Nacimiento aquí (aunque no estaba en tu lista original):
-                 // outputHtml += createTableRow('Fecha_de_Nacimiento', data.Fecha_de_Nacimiento);
+                outputHtml += createTableRow('Nombres_y_Apellidos', data.nombres_y_apellidos);
+                outputHtml += createTableRow('Cedula', data.cedula);
+                outputHtml += createTableRow('Celular', data.celular);
+                outputHtml += createTableRow('Correo_electronico', data.correo_electronico);
+                outputHtml += createTableRow('Fecha_de_Nacimiento', data.fecha_nacimiento);
                 outputHtml += '</tbody>';
                 outputHtml += '</table>';
 
@@ -84,10 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 outputHtml += '<h2>Datos Laborales</h2>';
                 outputHtml += '<table class="results-table">';
                 outputHtml += '<tbody>';
-                outputHtml += createTableRow('Salario', data.Salario);
-                outputHtml += createTableRow('Cotizante', data.Cotizante);
+                outputHtml += createTableRow('Salario', data.salario);
+                outputHtml += createTableRow('Cotizante', data.cotizante);
                 outputHtml += createTableRow('Sede', data.Sede);
-                outputHtml += createTableRow('Cargo_Empresa', data.Cargo_Empresa);
+                outputHtml += createTableRow('Cargo_Empresa', data.cargo_empresa);
                 outputHtml += '</tbody>';
                 outputHtml += '</table>';
 
@@ -95,10 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 outputHtml += '<h2>Datos de Afiliación</h2>';
                 outputHtml += '<table class="results-table">';
                 outputHtml += '<tbody>';
-                outputHtml += createTableRow('EPS', data.EPS);
-                outputHtml += createTableRow('AFP', data.AFP);
-                // Si seleccionaste y tienes datos de ARL, descomenta la siguiente línea:
-                // outputHtml += createTableRow('ARL', data.ARL);
+                outputHtml += createTableRow('EPS', data.eps);
+                outputHtml += createTableRow('AFP', data.afp);
+                outputHtml += createTableRow('ARL', data.arl);
                 outputHtml += '</tbody>';
                 outputHtml += '</table>';
 
