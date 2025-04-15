@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Si necesitas ARL, agrégalo aquí: 'cedula,Nombres_y_Apellidos,...,EPS,AFP,ARL,Correo_electronico,Celular'
             const { data, error } = await supabase
                 .from('Base de datos')      // Nombre de tu tabla
-                .select('cedula,nombres_y_apellidos,fecha_nacimiento,cotizante,sede,salario,cargo_empresa,eps,afp,correo_electronico,celular') // Columnas a seleccionar
+                .select('cedula,nombres_y_apellidos,fecha_nacimiento,cotizante,sede,salario,cargo_empresa,eps,afp,correo_electronico,celular,arl') // Columnas a seleccionar
                 .eq('cedula', cedula)  // Condición de búsqueda
                 .maybeSingle();        // Espera 0 o 1 resultado
 
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 outputHtml += '<tbody>';
                 outputHtml += createTableRow('Salario', data.salario);
                 outputHtml += createTableRow('Cotizante', data.cotizante);
-                outputHtml += createTableRow('Sede', data.Sede);
+                outputHtml += createTableRow('Sede', data.sede);
                 outputHtml += createTableRow('Cargo_Empresa', data.cargo_empresa);
                 outputHtml += '</tbody>';
                 outputHtml += '</table>';
