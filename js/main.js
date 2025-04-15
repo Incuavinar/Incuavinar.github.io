@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof supabase === 'undefined' || !supabase) {
         const errorMessage = typeof initError !== 'undefined' ? initError : 'Error: Cliente Supabase no disponible.';
         resultsDiv.innerHTML = `<p class="error">${errorMessage}</p>`;
-        if(cedulaInput) cedulaInput.disabled = true;
-        if(searchButton) searchButton.disabled = true;
+        if (cedulaInput) cedulaInput.disabled = true;
+        if (searchButton) searchButton.disabled = true;
         return;
     }
 
@@ -26,14 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Función para formatear claves (opcional pero útil) ---
     function formatKey(key) {
-        // Reemplaza guiones bajos con espacios y capitaliza la primera letra de cada palabra
         return key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     }
 
     // --- Función para crear una fila de tabla ---
     function createTableRow(key, value) {
         const formattedKey = formatKey(key);
-        // Si el valor es null o undefined, mostrar 'No disponible' o similar
         const displayValue = (value === null || value === undefined) ? 'No disponible' : value;
         return `<tr><td><strong>${formattedKey}:</strong></td><td>${displayValue}</td></tr>`;
     }
@@ -49,13 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            // Asegúrate de seleccionar TODOS los campos que necesitas para las 3 tablas
-            // Si necesitas ARL, agrégalo aquí: 'cedula,Nombres_y_Apellidos,...,EPS,AFP,ARL,Correo_electronico,Celular'
             const { data, error } = await supabase
-                .from('Base de datos')      // Nombre de tu tabla
-                .select('cedula,nombres_y_apellidos,fecha_nacimiento,cotizante,sede,salario,cargo_empresa,eps,afp,correo_electronico,celular,arl,ccf') // Columnas a seleccionar
-                .eq('cedula', cedula)  // Condición de búsqueda
-                .maybeSingle();        // Espera 0 o 1 resultado
+                .from('Base de datos')
+                .select('fotos,cedula,nombres_y_apellidos,fecha_nacimiento,cotizante,sede,salario,cargo_empresa,eps,afp,correo_electronico,celular,arl,ccf')
+                .eq('cedula', cedula)
+                .maybeSingle();
 
             if (error) {
                 console.error('Error de Supabase:', error);
@@ -66,6 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data) {
                 // --- Construcción del HTML con 3 tablas ---
                 let outputHtml = '';
+
+                // Mostrar la foto si existe
+                if (data.fotos) {
+                    outputHtml += `<div class="image-container"><img src="${data.fotos}" alt="Foto"></div>`;
+                }
 
                 // Tabla 1: Datos Personales
                 outputHtml += '<h2>Datos Personales</h2>';

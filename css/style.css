@@ -27,7 +27,7 @@ body {
 .results-table th,
 .results-table td {
     border: 1px solid #ddd; /* Bordes para celdas */
-    padding: 10px; /* Espaciado interno */
+    padding: px; /* Espaciado interno */
     text-align: left; /* Alineación del texto */
     vertical-align: top; /* Alineación vertical */
 }
@@ -82,4 +82,24 @@ body {
 
 #header-container h1 {
     margin: 0; /* Elimina el margen predeterminado del título */
+}
+/* Estilos para la imagen */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: 150px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
