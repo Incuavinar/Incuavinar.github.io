@@ -107,7 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 outputHtml += '<h2>Vinculacion Laboral</h2>';
                 outputHtml += '<table class="results-table">';
                 outputHtml += '<tbody>';
-                outputHtml += createTableRow('Cedula', `<a href="${data.cedulapdf}">Link</a>`);
+                outputHtml += createTableRow('Cedula', `<a href="${data.cedulapdf}"><img src="images/pdf.png" alt="PDF"></a>`);
+                outputHtml += createTableRow('Contrato_Laboral', `<a href="${data.cedulapdf}"><img src="images/pdf.png" alt="PDF"></a>`);
+                outputHtml += createTableRow('Certificacion_Bancaria', `<a href="${data.cedulapdf}"><img src="images/pdf.png" alt="PDF"></a>`);
+                outputHtml += createTableRow('Hoja_de_Vida', `<a href="${data.cedulapdf}"><img src="images/pdf.png" alt="PDF"></a>`);
+                outputHtml += createTableRow('RUT', `<a href="${data.cedulapdf}"><img src="images/pdf.png" alt="PDF"></a>`);
                 outputHtml += '</tbody>';
                 outputHtml += '</table>';
 
