@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const { data, error } = await supabase
                 .from('Base de datos')
-                .select('fotos,cedula,nombres_y_apellidos,fecha_nacimiento,cotizante,sede,salario,cargo_empresa,eps,afp,correo_electronico,celular,arl,ccf')
+                .select('fotos,cedula,nombres_y_apellidos,fecha_nacimiento,cotizante,sede,salario,cargo_empresa,situacion_laboral,eps,afp,correo_electronico,celular,arl,ccf,cedulapdf')
                 .eq('cedula', cedula)
                 .maybeSingle();
 
@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 outputHtml += createTableRow('Cotizante', data.cotizante);
                 outputHtml += createTableRow('Sede', data.sede);
                 outputHtml += createTableRow('Cargo_Empresa', data.cargo_empresa);
+                outputHtml += createTableRow('Situacion_Laboral', data.situacion_laboral);
                 outputHtml += '</tbody>';
                 outputHtml += '</table>';
 
@@ -99,6 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 outputHtml += createTableRow('AFP', data.afp);
                 outputHtml += createTableRow('ARL', data.arl);
                 outputHtml += createTableRow('CCF', data.ccf);
+                outputHtml += '</tbody>';
+                outputHtml += '</table>';
+
+                // Tabla 4: Vinculacion Laboral
+                outputHtml += '<h2>Vinculacion Laboral</h2>';
+                outputHtml += '<table class="results-table">';
+                outputHtml += '<tbody>';
+                outputHtml += createTableRow('Cedula', `<a href="${data.cedulapdf}">Link</a>`);
                 outputHtml += '</tbody>';
                 outputHtml += '</table>';
 
