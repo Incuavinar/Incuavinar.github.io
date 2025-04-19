@@ -9,7 +9,8 @@ body {
 }
 /* Estilos básicos para las tablas de resultados */
 .results-table {
-    width: 100%; /* O un ancho específico */
+    table-layout: fixed;
+    width: 120%; /* O un ancho específico */
     border-collapse: collapse; /* Une los bordes de las celdas */
     margin-bottom: 20px; /* Espacio entre tablas */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
@@ -26,19 +27,54 @@ body {
 
 .results-table th,
 .results-table td {
+    background-color: #ffffff;
     border: 1px solid #ddd; /* Bordes para celdas */
     padding: px; /* Espaciado interno */
     text-align: left; /* Alineación del texto */
     vertical-align: top; /* Alineación vertical */
 }
 
-.results-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Color de fondo para filas pares */
+.results-table td:first-child, td:nth-child(3) {
+    background-color: #c5c4c4; /* Color de fondo para columnas impares */
 }
 
 .results-table td:first-child strong {
     /* Estilo específico para la etiqueta (columna izquierda) */
-    color: #555;
+    color: #000000;
+}
+
+.results-table2 {
+    width: 120%; /* O un ancho específico */
+    border-collapse: collapse; /* Une los bordes de las celdas */
+    margin-bottom: 20px; /* Espacio entre tablas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 1px solid #ddd; /* Borde ligero */
+}
+
+.results-table2 h2 { /* Estilo para los títulos si están fuera de la tabla */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #007bff; /* Línea bajo el título */
+    padding-bottom: 5px;
+    color: #333;
+}
+
+.results-table2 th,
+.results-table2 td {
+    background-color: #ffffff;
+    border: 1px solid #ddd; /* Bordes para celdas */
+    padding: px; /* Espaciado interno */
+    text-align: left; /* Alineación del texto */
+    vertical-align: top; /* Alineación vertical */
+}
+
+.results-table2 td:first-child, td:nth-child(3) {
+    background-color: #c5c4c4; /* Color de fondo para columnas impares */
+}
+
+.results-table2 td:first-child strong {
+    /* Estilo específico para la etiqueta (columna izquierda) */
+    color: #000000;
 }
 
 /* Clases para mensajes */
@@ -77,7 +113,7 @@ body {
 #logo {
     width: 100px; /* Ajusta el tamaño del logo según tus necesidades */
     height: auto;
-    margin-right: 10px; /* Espacio entre el logo y el título */
+    margin-right: 50px; /* Espacio entre el logo y el título */
 }
 
 #header-container h1 {
@@ -85,7 +121,6 @@ body {
 }
 /* Estilos para la imagen */
 .image-container {
-    display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
